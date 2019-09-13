@@ -1,0 +1,17 @@
+resources:
+- name: sql-instance
+  type: gcp-types/sqladmin-v1beta4:instances
+  properties:
+    region: us-central1
+    settings:
+      tier: db-n1-standard-1
+      backupConfiguration:
+        binaryLogEnabled: true
+        enabled: true
+
+- name: sql-db
+  type: gcp-types/sqladmin-v1beta4:databases
+  properties:
+    name: sql-db
+    instance: sql-instance
+    charset: utf8
